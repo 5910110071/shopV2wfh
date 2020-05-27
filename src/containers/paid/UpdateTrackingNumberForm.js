@@ -73,7 +73,6 @@ class UpdateTrackingNumberForm extends Component {
 }
 
 function validate(values) {
-    console.log("values", values)
     const errors = {};
     UpdateTrackNumberFormFields.forEach(({ name, required }) => {
         if (!values[name] && required) {

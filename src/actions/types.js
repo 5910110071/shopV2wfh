@@ -1,12 +1,8 @@
-export const ORDERS_FETCH = "orders_fetch"
-export const ORDER_ADD = "order_add"
-export const ORDER_DELETE = "order_delete"
-export const ORDER_POST = "order_post"
-export const ORDER_CANCEL = "order_cancel"
+
 //export const ORDER_BUFFER = "order_buffer"
 export const ORDER_RESET = "order_reset"
 export const ORDER_CONFIRM = "order_confirm"
-export const ORDER_CONFIRM_FETCH = "order_confirm_fetch"
+export const ORDER_CONFIRM_FETCH = "order_confirm_fetch" 
 
 export const ORDERS_WAIT_PAYMENT = "orders_wait_payment"
 export const ORDERS_PAID = "orders_paid"

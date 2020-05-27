@@ -1,15 +1,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-
 import RegisterForm from "../../containers/register/RegisterForm"
-
 import { setUser } from '../../actions'
 
 class Register extends Component {
-    componentDidMount() {
-        
-    }
-
+   
     onSubmit(formValues) {
         formValues.status = "ลงทะเบียนแล้ว"
         formValues.id = this.props.user_id
@@ -20,12 +15,9 @@ class Register extends Component {
         const { formValues } = this.props;
         return (
             <div>
-                
                 <div className="container" style={{ minHeight: '79vh', backgroundColor: '#f5f5f5' }}>
-                    {/* <h2 className="text-center pt-3" >ลงทะเบียน</h2> */}
                     <RegisterForm onPaymentSubmit={() => this.onSubmit(formValues)} />
                 </div>
-                
             </div>
         )
     }

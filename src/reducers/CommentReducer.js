@@ -6,6 +6,6 @@ export default function (state = [], action) {
         case COMMENT_FETCH:
             return action.payload
         default:
-            return state // ค่าเดิม
+            return state 
     }
 }

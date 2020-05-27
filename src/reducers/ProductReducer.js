@@ -10,6 +10,6 @@ export default function (state = [], action) {
         case PRODUCT_UPDATE:
             return { ...state, saved: true, msg: "บันทึกสินค้าเรียบร้อย" }
         default:
-            return state // ค่าเดิม
+            return state
     }
 }

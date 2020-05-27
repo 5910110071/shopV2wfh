@@ -11,12 +11,10 @@ class UpdateTrackingNumber extends Component {
     componentDidMount() {
         if (this.props.match.params.id) {
             this.props.orderPaymentFetch(this.props.match.params.id)
-            console.log("this.props.id", this.props.match.params.id)
         }
     }
 
     onSubmit(formValues) {
-        console.log("formValues", formValues)
         this.props.ordersPaymentPut(formValues._id, formValues)
     }
     render() {

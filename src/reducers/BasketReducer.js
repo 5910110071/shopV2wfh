@@ -4,6 +4,6 @@ export default function (state = {}, action) {
         case BASKET_POST:
             return action.payload
         default:
-            return state // ค่าเดิม
+            return state 
     }
 }

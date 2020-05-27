@@ -3,13 +3,12 @@ import { connect } from "react-redux"
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import WaitPaymentForm from "../../containers/waitPayment/WaitPaymentForm"
-import { orderPaymentFetch, ordersPaymentPut, basketFetch, basketPost } from '../../actions/'
+import { basketFetch, basketPost, basketDelete } from '../../actions/'
 import { authen } from "../../FirebaseConfig";
 
 class PaymentOrderComfirm extends Component {
     componentDidMount() {
         if (this.props.match.params.id) {
-            console.log("this.props.match.params.id", this.props.match.params.id)
             this.props.basketFetch(this.props.match.params.id)
         }
     }
@@ -27,16 +26,12 @@ class PaymentOrderComfirm extends Component {
                 // console.log(error);
             },
             () => {
-                // complete function ....
                 authen.storage().ref('images').child(formValues.image[0].name).getDownloadURL().then(url => {
-                    console.log(url);
-                    //this.setState({ url });
                     formValues.image = "test"
                     formValues.Silp = url
                     formValues.status = "ชำระเงินแล้ว"
-                    console.log("formValues", formValues)
                     this.props.basketPost(formValues)
-                    console.log(" formValues.Silp", formValues);
+                    this.props.basketDelete(this.props.basket._id)
                 })
             });
     }
@@ -48,11 +43,12 @@ class PaymentOrderComfirm extends Component {
                 <Header menu={this.props.match.path} />
                 <div className="container" style={{ minHeight: '79vh', backgroundColor: '#f5f5f5' }}>
                     <h2 className="text-center pt-3" >แจ้งชำระเงิน</h2>
-                    <WaitPaymentForm onPaymentSubmit={() => this.onSubmit(formValues)} orders={basket} />
+                    {this.props.basket && <WaitPaymentForm onPaymentSubmit={() => this.onSubmit(formValues)} basket={basket} />}
                 </div>
                 <Footer />
             </div>
         )
+
     }
 }
 
@@ -60,4 +56,4 @@ function mapStateToProps({ form, orders, basket }) {
     return { formValues: form.paymentForm ? form.paymentForm.values : null, orders, basket }
 }
 
-export default connect(mapStateToProps, { orderPaymentFetch, ordersPaymentPut, basketFetch, basketPost })(PaymentOrderComfirm)
+export default connect(mapStateToProps, { basketFetch, basketPost, basketDelete })(PaymentOrderComfirm)
