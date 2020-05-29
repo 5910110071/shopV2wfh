@@ -13,11 +13,14 @@ class Home extends Component {
   componentDidMount() {
     this.props.productsFetch()
   }
-  
-  render() { 
+
+  render() {
     return (
       <div>
-        <Header showCategoryAndSearch = {true} menu = {this.props.match.path} />
+
+        <Header showCategoryAndSearch={true} menu={this.props.match.path} />
+
+
         <Monitor products={this.props.products} />
         <Footer company="Olanlab" email="olan@olanlab.com" />
       </div>

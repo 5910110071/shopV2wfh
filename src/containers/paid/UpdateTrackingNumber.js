@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import Header from '../../components/Header'
+import Header from '../../components/Header3'
 import Footer from '../../components/Footer'
 import UpdateTrackingNumberForm from "../../containers/paid/UpdateTrackingNumberForm"
 

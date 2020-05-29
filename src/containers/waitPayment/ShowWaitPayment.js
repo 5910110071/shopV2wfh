@@ -20,7 +20,7 @@ class ShowWaitPayment extends Component {
     const date = new Date(basket.orderDate);
     return (
       <div className="col-md-12 ">
-        <div className="mb-4 ">
+        <div className="mb-4">
           <h5 className="text-center mt-3 mb-3 ">รายการสั่งซื้อวันที่ {date.toLocaleDateString()}{" "}{date.toLocaleTimeString()}</h5>
           <div className="row d-flex justify-content-center">
             {basket.orders && basket.orders.map((record) => {

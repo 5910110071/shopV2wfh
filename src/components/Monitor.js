@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 class Monitor extends Component {
   selectProduct(product) {
     this.props.history.push(
-      "product/" + product.product_id + "/+saleman_id"
+      "product/" + product.product_id + "/saleman_id"
     );
   }
 
@@ -14,7 +14,7 @@ class Monitor extends Component {
       Array.isArray(this.props.products) &&
       this.props.products.map((product) => (
         <div
-        className="col-md-3 btn"
+          className="col-md-3 btn"
           key={product.product_id}
           onClick={() => this.selectProduct(product)}
         >
@@ -28,7 +28,9 @@ class Monitor extends Component {
               <h5 className="title text-right text-danger mt-1">
                 {product.product_price} บาท
               </h5>
+
             </div>
+            
           </div>
         </div>
       ))

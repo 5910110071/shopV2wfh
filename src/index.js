@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import App from './App';
 import Main from './Main';
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware } from "redux"
@@ -12,9 +12,12 @@ import * as serviceWorker from './serviceWorker';
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
 ReactDOM.render(
-  <div style={{backgroundColor:'#f5f5f5'}}>
+  <div style={{ backgroundColor: '#f5f5f5' }}>
     <Provider store={store}>
-      <Main />
+      <div>
+        <Main />
+      </div>
+
     </Provider>
   </div>,
   document.getElementById('root')

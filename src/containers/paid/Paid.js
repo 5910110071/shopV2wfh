@@ -16,6 +16,7 @@ class PaymentMornitor extends Component {
     componentDidMount() {
         this.props.ordersPaidFetch(this.props.user.id)
     }
+
     changeStatus(order, status) {
         order.status = status
         // ส่ง email ไปยังผู้ใช้
@@ -25,8 +26,10 @@ class PaymentMornitor extends Component {
         )
         this.props.ordersPaymentStatusPut(order._id, order, this.props.user.id)
     }
+
     render() {
         return (
+            
             <div>
                 <Header menu={this.props.match.path} />
                 <ShowPaid
